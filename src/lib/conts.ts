@@ -6,13 +6,13 @@ export const CARDS_DATA = [
     category: "architecture",
   },
   {
-    img: "/images//image.png",
+    img: "/images/image.png",
     title: "Integrating Smart Technology in Modern Architectural Design",
     desc: "The integration of smart technology in architectural design is revolutionizing the way buildings are constructed and operated. Smart buildings utilize advanced technologies such as the Internet of Things (IoT), artificial intelligence (AI), and advanced sensors to enhance functionality, efficiency, and user experience.",
     category: "commercial",
   },
   {
-    img: "/images//image.png",
+    img: "/images/image.png",
     title: "The Role of Cultural Context in Architectural Design",
     desc: "Architectural design is deeply influenced by the cultural context in which a project is situated. Understanding and incorporating cultural elements into design helps create buildings that resonate with their surroundings and the people who use them.",
     category: "residential",
