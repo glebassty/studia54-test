@@ -2,13 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LINKS } from "~/lib/conts";
 import { cn } from "~/lib/utils";
 
 interface NavLinksProps {
-  projects: string;
-  news: string;
-  blog: string;
-  contacts: string;
   className?: string;
   textColor?: string;
   hoverColor?: string;
@@ -16,10 +13,6 @@ interface NavLinksProps {
 }
 
 export default function NavLinks({
-  projects,
-  news,
-  blog,
-  contacts,
   className = "",
   textColor = "text-[#787878]",
   hoverColor = "hover:text-[#2969CA]",
@@ -27,17 +20,10 @@ export default function NavLinks({
 }: NavLinksProps) {
   const pathname = usePathname();
 
-  const links = [
-    { href: projects, label: "Projects" },
-    { href: news, label: "News" },
-    { href: blog, label: "Blog" },
-    { href: contacts, label: "Contacts" },
-  ];
-
   return (
     <nav className={cn("flex items-center justify-center gap-8", className)}>
       <div className="flex gap-6">
-        {links.map((link) => (
+        {LINKS.map((link) => (
           <Link
             key={link.href}
             href={link.href}
