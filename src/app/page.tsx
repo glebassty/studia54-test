@@ -2,7 +2,7 @@ import { Container } from "~/components/Container";
 import ContantWithTabs from "~/components/ContantWithTabs";
 
 import PromoBlock from "~/components/PromoBlock";
-import { PROMO_DESCRIPTION } from "~/lib/conts";
+import { PROMO_DESCRIPTION } from "~/lib/constants";
 
 export default function HomePage() {
   return (

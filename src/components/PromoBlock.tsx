@@ -32,7 +32,6 @@ export default function PromoBlock({ description }: PromoBlockProps) {
         </div>
         <div className="ml-12 flex w-1/2 max-w-lg flex-col items-start justify-center">
           <p className="mt-10 mb-8 text-lg text-neutral-700">{description}</p>
-
           <Button asChild variant="outline" className="px-8 py-4 text-lg">
             <Link href="/projects">All projects</Link>
           </Button>

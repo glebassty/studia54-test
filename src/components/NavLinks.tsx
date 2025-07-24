@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LINKS } from "~/lib/conts";
+import { LINKS } from "~/lib/constants";
 import { cn } from "~/lib/utils";
 
 interface NavLinksProps {

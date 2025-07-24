@@ -1,18 +1,12 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "~/components/ui/tabs";
 import CardsGrid from "./CardGrid";
-import { CARDS_DATA } from "~/lib/conts";
-
-const categories = [
-  { value: "architecture", label: "Architectural Design" },
-  { value: "residential", label: "Residential Interiors" },
-  { value: "commercial", label: "Commercial Interior" },
-];
+import { CARDS_DATA, TABS_CATEGORIES } from "~/lib/constants";
 
 export default function ContantWithTabs() {
   return (
     <Tabs defaultValue="architecture" className="w-full p-8">
       <TabsList className="mb-8 flex justify-center gap-2 border-none bg-neutral-800">
-        {categories.map((cat) => (
+        {TABS_CATEGORIES.map((cat) => (
           <TabsTrigger
             key={cat.value}
             value={cat.value}
@@ -22,7 +16,7 @@ export default function ContantWithTabs() {
           </TabsTrigger>
         ))}
       </TabsList>
-      {categories.map((cat) => (
+      {TABS_CATEGORIES.map((cat) => (
         <TabsContent key={cat.value} value={cat.value}>
           <CardsGrid
             cards={CARDS_DATA.filter((card) => card.category === cat.value)}
