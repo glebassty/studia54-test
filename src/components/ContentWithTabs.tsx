@@ -2,7 +2,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "~/components/ui/tabs";
 import CardsGrid from "./CardGrid";
 import { CARDS_DATA, TABS_CATEGORIES } from "~/lib/constants";
 
-export default function ContantWithTabs() {
+export default function ContentWithTabs() {
   return (
     <Tabs defaultValue="architecture" className="w-full p-8">
       <TabsList className="mb-8 flex justify-center gap-2 border-none bg-neutral-800">
