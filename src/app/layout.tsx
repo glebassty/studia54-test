@@ -23,20 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body>
-        <Header
-          projects="/projects"
-          news="/news"
-          blog="/blog"
-          contacts="/contacts"
-        />
-
+        <Header />
         <main className="bg-[#181818]">{children}</main>
-        <Footer
-          projects="/projects"
-          news="/news"
-          blog="/blog"
-          contacts="/contacts"
-        />
+        <Footer />
       </body>
     </html>
   );
