@@ -1,17 +1,17 @@
 // lib/mappers.ts
 import type { UICard } from '~/types/common';
 import type { Article } from '../types/strapi';
-
+import { getStrapiMedia } from './utils';
 
 export function mapArticlesToCards(articles: Article[]): UICard[] {
   return articles.map((a) => {
     const { seo, Hero, preview, tags } = a.attributes;
 
     const firstTag = tags?.data?.[0] ?? null;
-    const image =
+    const image = getStrapiMedia(
       preview?.data?.attributes?.formats?.small?.url ??
-      preview?.data?.attributes?.url ??
-      null;
+      preview?.data?.attributes?.url
+    );
 
     return {
       id: a.id,

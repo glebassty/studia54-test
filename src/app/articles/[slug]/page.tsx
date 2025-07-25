@@ -1,7 +1,7 @@
-// app/articles/[slug]/page.tsx
 import axios from "axios";
 import type { Article, StrapiResponse } from "~/types/strapi";
 import Image from "next/image";
+import { getStrapiMedia } from "~/lib/utils"; // убедись, что путь правильный
 
 async function getArticleBySlug(slug: string): Promise<Article | null> {
   const res = await axios.get<StrapiResponse<Article>>(
@@ -19,19 +19,20 @@ async function getArticleBySlug(slug: string): Promise<Article | null> {
 export default async function ArticlePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const article = await getArticleBySlug(params.slug);
+  const { slug } = await params;
+  const article = await getArticleBySlug(slug);
 
   if (!article) {
     return <div>Not found</div>;
   }
 
   const { seo, Hero, preview } = article.attributes;
-  const image =
+  const image = getStrapiMedia(
     preview?.data?.attributes?.formats?.small?.url ??
-    preview?.data?.attributes?.url ??
-    null;
+      preview?.data?.attributes?.url,
+  );
 
   return (
     <article className="prose prose-invert mx-auto max-w-3xl py-10">
@@ -47,7 +48,6 @@ export default async function ArticlePage({
         </div>
       )}
       {Hero?.description && <p>{Hero.description}</p>}
-      {/* Тут разруливай рендеринг dynamic zone `content` */}
     </article>
   );
 }
