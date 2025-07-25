@@ -33,7 +33,7 @@ export default function ProjectsPage() {
         description="Это описание приходит как пропс и заменяет значение по умолчанию."
       />
       <div className="mt-10 flex w-full max-w-5xl flex-col gap-10">
-        <div className="flex gap-6">
+        <div className="flex flex-col gap-6 md:flex-row">
           <CardImage
             imageSrc="/images/card-image/image.png"
             description="Это описание появится под изображением"
@@ -45,7 +45,8 @@ export default function ProjectsPage() {
             description2="Это описание2 появится под изображением"
           />
         </div>
-        <div className="flex gap-6">
+
+        <div className="flex flex-col gap-6 md:flex-row">
           <CardInfo
             imageSrc="/images/card-info/image.png"
             description="Это описание появится под изображением"
@@ -57,6 +58,7 @@ export default function ProjectsPage() {
           />
         </div>
       </div>
+
       <div className="mt-10 flex w-full max-w-5xl flex-col gap-10">
         <FeaturesSection
           imageSrc="/images/feat-section/desktop.png"

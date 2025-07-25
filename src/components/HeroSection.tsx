@@ -46,10 +46,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             priority
           />
         </div>
-
-        {/* Только описание (заголовок скрыт) */}
         <div className="px-6 py-4">
-          <p className="text-left text-sm text-gray-800">{description}</p>
+          <p className="text-left text-sm text-white">{description}</p>
         </div>
       </div>
     </section>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import NavLinks from "./NavLinks";
-import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer";
+import { Drawer, DrawerContent, DrawerTrigger, DrawerTitle } from "./ui/drawer";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -21,6 +21,7 @@ export default function Header() {
                 </button>
               </DrawerTrigger>
               <DrawerContent className="p-6">
+                <DrawerTitle className="text-lg font-bold">Меню</DrawerTitle>
                 <NavLinks />
               </DrawerContent>
             </Drawer>

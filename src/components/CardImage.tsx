@@ -15,19 +15,22 @@ const CardImage: React.FC<CardImageProps> = ({
   isShowDescription = true,
 }) => {
   return (
-    <div className="hidden md:block">
-      <div className="relative h-[400px] w-[600px]">
+    <div className="w-full md:w-auto">
+      {/* Картинка */}
+      <div className="relative h-auto w-full md:h-[400px] md:w-[600px]">
         <Image
           src={imageSrc}
           alt="Main image"
           width={1038}
           height={694}
-          className="object-cover"
+          className="h-auto w-full object-cover"
           priority
         />
       </div>
+
+      {/* Описание */}
       {isShowDescription && (
-        <div className="mt-4 w-[600px] text-left text-base text-white">
+        <div className="mt-4 text-left text-base text-white md:w-[600px] md:border-0">
           <p>{description}</p>
         </div>
       )}
