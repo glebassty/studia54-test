@@ -26,3 +26,17 @@ export async function getArticles(): Promise<Article[]> {
     return [];
   }
 }
+
+
+export async function getArticleBySlug(slug: string): Promise<Article | null> {
+  const res = await axios.get<StrapiResponse<Article>>(
+    "http://localhost:1337/api/articles",
+    {
+      params: {
+        populate: "*",
+        "filters[seo][slug][$eq]": slug,
+      },
+    },
+  );
+  return res.data.data[0] ?? null;
+}
