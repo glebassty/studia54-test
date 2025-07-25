@@ -16,7 +16,6 @@ const CardImage: React.FC<CardImageProps> = ({
 }) => {
   return (
     <div className="w-full md:w-auto">
-      {/* Картинка */}
       <div className="relative h-auto w-full md:h-[400px] md:w-[600px]">
         <Image
           src={imageSrc}
@@ -27,8 +26,6 @@ const CardImage: React.FC<CardImageProps> = ({
           priority
         />
       </div>
-
-      {/* Описание */}
       {isShowDescription && (
         <div className="mt-4 text-left text-base text-white md:w-[600px] md:border-0">
           <p>{description}</p>
