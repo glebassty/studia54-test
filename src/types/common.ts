@@ -1,8 +1,10 @@
-export type UICard = {
+export interface UICard {
   id: number;
   title: string;
-  description?: string;
+  description?: string | null;
   image?: string | null;
   href: string;
-  category: { name: string; slug: string } | null; // берем первый тег или null
-};
+  tags?: {
+    system_title: string;
+  }[]; 
+}

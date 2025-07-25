@@ -32,8 +32,7 @@ export interface Media {
 export interface Tag {
   id: number;
   attributes: {
-    name: string;
-    slug: string;
+    system_title: string;
   };
 }
 
@@ -66,3 +65,5 @@ export interface StrapiResponse<T> {
   data: T[];
   meta: Record<string, unknown>;
 }
+
+

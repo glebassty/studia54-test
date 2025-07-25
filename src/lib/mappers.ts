@@ -7,11 +7,16 @@ export function mapArticlesToCards(articles: Article[]): UICard[] {
   return articles.map((a) => {
     const { seo, Hero, preview, tags } = a.attributes;
 
-    const firstTag = tags?.data?.[0] ?? null;
     const image = getStrapiMedia(
       preview?.data?.attributes?.formats?.small?.url ??
       preview?.data?.attributes?.url
     );
+
+    // Массив объектов тегов с system_title
+    const tagObjects =
+      tags?.data?.map((tag) => ({
+        system_title: tag.attributes?.system_title ?? '',
+      }))     ?? [];
 
     return {
       id: a.id,
@@ -19,12 +24,7 @@ export function mapArticlesToCards(articles: Article[]): UICard[] {
       description: Hero?.description ?? seo?.description,
       image,
       href: `/articles/${seo?.slug ?? a.id}`,
-      category: firstTag
-        ? {
-            name: firstTag.attributes.name,
-            slug: firstTag.attributes.slug,
-          }
-        : null,
+      tags: tagObjects, 
     };
   });
 }

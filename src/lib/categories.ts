@@ -1,18 +1,26 @@
-import type { Article } from '../types/strapi';
+// lib/categories.ts
 
-export type TabCategory = { value: string; label: string };
+import type { Article } from "~/types/strapi";
+
+export type TabCategory = {
+  value: string; // это system_title
+  label: string;
+};
 
 export function buildTabCategories(articles: Article[]): TabCategory[] {
   const map = new Map<string, string>();
-  for (const a of articles) {
-    for (const tag of a.attributes.tags?.data ?? []) {
-      map.set(tag.attributes.slug, tag.attributes.name);
+
+  for (const article of articles) {
+    for (const tag of article.attributes.tags?.data ?? []) {
+      const title = tag.attributes.system_title?.trim();
+      if (title) {
+        map.set(title.toLowerCase(), title); // value = system_title (в нижнем регистре)
+      }
     }
   }
 
-  // Если хочешь «All» первым:
   return [
-    { value: 'all', label: 'All' },
-    ...Array.from(map, ([slug, name]) => ({ value: slug, label: name })),
+    { value: "all", label: "All" },
+    ...Array.from(map, ([value, label]) => ({ value, label })),
   ];
 }

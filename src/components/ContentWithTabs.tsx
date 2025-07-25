@@ -1,7 +1,7 @@
 "use client";
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "~/components/ui/tabs";
-import CardsGrid from "./CardGrid"; // предположим, что умеет принимать UICard[]
+import CardsGrid from "./CardGrid";
 import type { TabCategory } from "~/lib/categories";
 import type { UICard } from "~/types/common";
 
@@ -11,6 +11,8 @@ interface Props {
 }
 
 export default function ContentWithTabs({ cards, categories }: Props) {
+  console.log(categories, "categories");
+  console.log(cards, "cards");
   return (
     <Tabs defaultValue="all" className="w-full p-8">
       <TabsList className="mb-8 flex justify-center gap-2 border-none bg-neutral-800">
@@ -29,8 +31,16 @@ export default function ContentWithTabs({ cards, categories }: Props) {
         const filtered =
           cat.value === "all"
             ? cards
-            : cards.filter((c) => c.category?.slug === cat.value);
-
+            : cards.filter(
+                (c) =>
+                  Array.isArray(c.tags) &&
+                  c.tags.some(
+                    (tag) =>
+                      typeof tag.system_title === "string" &&
+                      tag.system_title.toLowerCase() ===
+                        cat.value.toLowerCase(),
+                  ),
+              );
         return (
           <TabsContent key={cat.value} value={cat.value}>
             <CardsGrid cards={filtered} />
