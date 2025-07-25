@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Article, StrapiResponse } from "~/types/strapi";
 import Image from "next/image";
-import { getStrapiMedia } from "~/lib/utils"; // убедись, что путь правильный
+import { getStrapiMedia } from "~/lib/funcs";
 
 async function getArticleBySlug(slug: string): Promise<Article | null> {
   const res = await axios.get<StrapiResponse<Article>>(
@@ -35,8 +35,8 @@ export default async function ArticlePage({
   );
 
   return (
-    <article className="prose prose-invert mx-auto max-w-3xl py-10">
-      <h1>{Hero?.title ?? seo?.title}</h1>
+    <article className="prose prose-invert mx-auto max-w-3xl p-10">
+      <h1 className="text-white">{Hero?.title ?? seo?.title}</h1>
       {image && (
         <div className="relative my-6 aspect-[16/9] w-full">
           <Image
@@ -47,7 +47,7 @@ export default async function ArticlePage({
           />
         </div>
       )}
-      {Hero?.description && <p>{Hero.description}</p>}
+      {Hero?.description && <p className="text-white">{Hero.description}</p>}
     </article>
   );
 }

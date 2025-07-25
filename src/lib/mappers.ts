@@ -1,7 +1,8 @@
 // lib/mappers.ts
 import type { UICard } from '~/types/common';
 import type { Article } from '../types/strapi';
-import { getStrapiMedia } from './utils';
+import { getStrapiMedia } from './funcs';
+
 
 export function mapArticlesToCards(articles: Article[]): UICard[] {
   return articles.map((a) => {

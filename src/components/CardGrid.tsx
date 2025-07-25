@@ -9,13 +9,9 @@ export default function CardsGrid({ cards }: { cards: UICard[] }) {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {cards.map((c) => (
-        <Link
-          key={c.id}
-          href={c.href}
-          className="block rounded-lg border border-neutral-800 p-4 hover:bg-neutral-900"
-        >
+        <Link key={c.id} href={c.href} className="">
           {c.image && (
-            <div className="relative mb-3 aspect-[16/9] w-full overflow-hidden rounded-md">
+            <div className="relative mb-3 aspect-[16/9] w-full overflow-hidden">
               <Image
                 src={c.image}
                 alt={c.title}
@@ -25,9 +21,9 @@ export default function CardsGrid({ cards }: { cards: UICard[] }) {
               />
             </div>
           )}
-          <h3 className="text-lg font-semibold">{c.title}</h3>
+          <h3 className="text-lg font-semibold text-white">{c.title}</h3>
           {c.description && (
-            <p className="mt-2 line-clamp-3 text-sm text-neutral-400">
+            <p className="mt-2 line-clamp-3 text-sm text-white">
               {c.description}
             </p>
           )}
