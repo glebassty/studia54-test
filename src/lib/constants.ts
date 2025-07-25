@@ -5,6 +5,51 @@ export const CARDS_DATA = [
     desc: "In recent years, sustainable design has become a cornerstone of architectural project planning. Sustainable design focuses on creating buildings that minimize environmental impact and promote energy efficiency.",
     category: "architecture",
   },
+    {
+    img: "/images/image.png",
+    title: "The Importance of Sustainable Design in Architectural Projects",
+    desc: "In recent years, sustainable design has become a cornerstone of architectural project planning. Sustainable design focuses on creating buildings that minimize environmental impact and promote energy efficiency.",
+    category: "architecture",
+  },
+    {
+    img: "/images/image.png",
+    title: "The Importance of Sustainable Design in Architectural Projects",
+    desc: "In recent years, sustainable design has become a cornerstone of architectural project planning. Sustainable design focuses on creating buildings that minimize environmental impact and promote energy efficiency.",
+    category: "architecture",
+  },
+    {
+    img: "/images/image.png",
+    title: "The Importance of Sustainable Design in Architectural Projects",
+    desc: "In recent years, sustainable design has become a cornerstone of architectural project planning. Sustainable design focuses on creating buildings that minimize environmental impact and promote energy efficiency.",
+    category: "architecture",
+  },  {
+    img: "/images/image.png",
+    title: "The Importance of Sustainable Design in Architectural Projects",
+    desc: "In recent years, sustainable design has become a cornerstone of architectural project planning. Sustainable design focuses on creating buildings that minimize environmental impact and promote energy efficiency.",
+    category: "architecture",
+  },  {
+    img: "/images/image.png",
+    title: "The Importance of Sustainable Design in Architectural Projects",
+    desc: "In recent years, sustainable design has become a cornerstone of architectural project planning. Sustainable design focuses on creating buildings that minimize environmental impact and promote energy efficiency.",
+    category: "architecture",
+  },
+    {
+    img: "/images/image.png",
+    title: "The Importance of Sustainable Design in Architectural Projects",
+    desc: "In recent years, sustainable design has become a cornerstone of architectural project planning. Sustainable design focuses on creating buildings that minimize environmental impact and promote energy efficiency.",
+    category: "architecture",
+  },  {
+    img: "/images/image.png",
+    title: "The Importance of Sustainable Design in Architectural Projects",
+    desc: "In recent years, sustainable design has become a cornerstone of architectural project planning. Sustainable design focuses on creating buildings that minimize environmental impact and promote energy efficiency.",
+    category: "architecture",
+  },  {
+    img: "/images/image.png",
+    title: "The Importance of Sustainable Design in Architectural Projects",
+    desc: "In recent years, sustainable design has become a cornerstone of architectural project planning. Sustainable design focuses on creating buildings that minimize environmental impact and promote energy efficiency.",
+    category: "architecture",
+  },
+
   {
     img: "/images/image.png",
     title: "Integrating Smart Technology in Modern Architectural Design",
