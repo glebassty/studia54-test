@@ -1,30 +1,35 @@
-// Компонент SEO
-interface SEO {
-  title: string;
-  description?: string;
-  slug?: string;
+// types/strapi.ts
+
+export interface ImageFormat {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path: string | null;
+  size: number;
+  width: number;
+  height: number;
+  sizeInBytes: number;
 }
 
-// Медиа (Strapi Media)
-interface Media {
-  id: number;
-  attributes: {
-    url: string;
-    alternativeText?: string;
-    caption?: string;
-    formats?: Record<string, unknown>;
+export interface MediaAttributes {
+  url: string;
+  alternativeText?: string;
+  caption?: string;
+  formats?: {
+    small?: ImageFormat;
+    thumbnail?: ImageFormat;
+    [key: string]: ImageFormat | undefined;
   };
 }
 
-// Компонент Hero-article
-interface HeroArticle {
-  title: string;
-  description?: string;
-  background: { data: Media };
+export interface Media {
+  id: number;
+  attributes: MediaAttributes;
 }
 
-// Тег
-interface Tag {
+export interface Tag {
   id: number;
   attributes: {
     name: string;
@@ -32,22 +37,27 @@ interface Tag {
   };
 }
 
-// Dynamic zone: пока типизируем как unknown[]
-type ContentBlock = unknown;
+export interface SEO {
+  title: string;
+  description?: string;
+  slug?: string;
+}
 
-// Статья
+export interface HeroArticle {
+  title: string;
+  description?: string;
+}
+
 export interface Article {
   id: number;
   attributes: {
     seo: SEO;
     Hero: HeroArticle;
-    content: ContentBlock[];
-    tags: { data: Tag[] };
-    preview: { data: Media };
-    recommendations: { data: Article[] };
+    preview?: { data?: Media | null };
+    tags?: { data: Tag[] };
     createdAt: string;
     updatedAt: string;
-    publishedAt?: string;
+    publishedAt: string;
   };
 }
 
