@@ -19,13 +19,13 @@ export default function PromoBlock({ description }: PromoBlockProps) {
           height={170}
         />
       </div>
-      <div className="relative z-10 flex w-full max-w-7xl items-center justify-between px-8 py-24">
-        <div className="-mt-[85px] w-1/2 max-w-xl flex-shrink-0">
+      <div className="z-10 flex w-full max-w-7xl items-center justify-between px-8 py-24">
+        <div className="absolute -bottom-10 left-0 w-1/2 max-w-xl flex-shrink-0">
           <Image
             src="/images/promo-block/model.png"
             alt="Model"
             width={1058}
-            height={825}
+            height={824}
             className="h-auto w-full object-contain"
             priority
           />
