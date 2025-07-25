@@ -8,7 +8,7 @@ interface PromoBlockProps {
 
 export default function PromoBlock({ description }: PromoBlockProps) {
   return (
-    <section className="relative flex flex-col items-center justify-center overflow-hidden bg-[#f0f0f0]">
+    <section className="relative flex flex-col items-center justify-center overflow-hidden bg-[#f0f0f0] px-6">
       {/* Фоновое изображение заголовка */}
       <div className="pointer-events-none absolute top-0 left-0 z-0 h-full w-full">
         <Image
