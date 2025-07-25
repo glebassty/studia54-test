@@ -13,7 +13,7 @@ interface Props {
 export default function ContentWithTabs({ cards, categories }: Props) {
   return (
     <Tabs defaultValue="all" className="w-full p-8">
-      <TabsList className="mb-8 flex justify-center gap-2 border-none bg-neutral-800">
+      <TabsList className="mb-8 flex justify-start gap-2 border-none">
         {categories.map((cat) => (
           <TabsTrigger
             key={cat.value}
