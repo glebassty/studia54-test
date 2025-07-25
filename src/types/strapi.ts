@@ -50,3 +50,9 @@ export interface Article {
     publishedAt?: string;
   };
 }
+
+// Ответ Strapi
+export interface StrapiResponse<T> {
+  data: T[];
+  meta: Record<string, unknown>;
+}

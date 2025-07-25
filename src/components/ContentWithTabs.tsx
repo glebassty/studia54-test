@@ -1,12 +1,20 @@
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "~/components/ui/tabs";
-import CardsGrid from "./CardGrid";
-import { CARDS_DATA, TABS_CATEGORIES } from "~/lib/constants";
+"use client";
 
-export default function ContentWithTabs() {
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "~/components/ui/tabs";
+import CardsGrid from "./CardGrid"; // предположим, что умеет принимать UICard[]
+import type { TabCategory } from "~/lib/categories";
+import type { UICard } from "~/types/common";
+
+interface Props {
+  cards: UICard[];
+  categories: TabCategory[];
+}
+
+export default function ContentWithTabs({ cards, categories }: Props) {
   return (
-    <Tabs defaultValue="architecture" className="w-full p-8">
+    <Tabs defaultValue="all" className="w-full p-8">
       <TabsList className="mb-8 flex justify-center gap-2 border-none bg-neutral-800">
-        {TABS_CATEGORIES.map((cat) => (
+        {categories.map((cat) => (
           <TabsTrigger
             key={cat.value}
             value={cat.value}
@@ -16,13 +24,19 @@ export default function ContentWithTabs() {
           </TabsTrigger>
         ))}
       </TabsList>
-      {TABS_CATEGORIES.map((cat) => (
-        <TabsContent key={cat.value} value={cat.value}>
-          <CardsGrid
-            cards={CARDS_DATA.filter((card) => card.category === cat.value)}
-          />
-        </TabsContent>
-      ))}
+
+      {categories.map((cat) => {
+        const filtered =
+          cat.value === "all"
+            ? cards
+            : cards.filter((c) => c.category?.slug === cat.value);
+
+        return (
+          <TabsContent key={cat.value} value={cat.value}>
+            <CardsGrid cards={filtered} />
+          </TabsContent>
+        );
+      })}
     </Tabs>
   );
 }

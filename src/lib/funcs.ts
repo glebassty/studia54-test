@@ -1,20 +1,16 @@
+// lib/funcs.ts
 import axios from 'axios';
-import type { Article } from './typesStrapi';
-
-
-
-// Ответ Strapi
-interface StrapiResponse<T> {
-  data: T[];
-  meta: Record<string, unknown>;
-}
+import type { Article, StrapiResponse } from '../types/strapi';
 
 export async function getArticles(): Promise<Article[]> {
   try {
     const res = await axios.get<StrapiResponse<Article>>(
       'http://localhost:1337/api/articles',
       {
-        params: { populate: '*' }, // чтобы подтянуть компоненты и медиа
+        params: {
+          populate: '*', 
+          sort: 'publishedAt:desc',
+        },
       }
     );
     return res.data.data;
