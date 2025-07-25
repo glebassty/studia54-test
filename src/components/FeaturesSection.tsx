@@ -4,51 +4,33 @@ import Image from "next/image";
 import React from "react";
 
 type FeaturesSectionProps = {
-  title?: string;
-  description?: string;
+  imageSrc: string;
+  title: string;
+  description: string;
 };
 
 const FeaturesSection: React.FC<FeaturesSectionProps> = ({
-  title = "Заголовок по умолчанию",
-  description = "Описание по умолчанию. Это описание отображается, если пропс не передан.",
+  imageSrc,
+  title,
+  description,
 }) => {
   return (
-    <section className="w-full">
-      <div className="relative hidden h-[500px] w-full md:block">
-        <Image
-          src="/images/feat-section/desktop.png"
-          alt="Background"
-          width={1800}
-          height={1200}
-          className="z-0 object-cover"
-          priority
-        />
+    <div className="relative h-[600px] w-full overflow-hidden">
+      <Image
+        src={imageSrc}
+        alt={title}
+        fill
+        className="object-cover"
+        priority
+      />
 
-        <div className="absolute bottom-10 left-10 z-10 text-left text-white">
-          <h1 className="text-4xl font-bold">{title}</h1>
-          <p className="mt-[10px] text-lg">{description}</p>
-        </div>
+      <div className="absolute right-0 bottom-0 left-0 z-10 h-1/3 bg-gradient-to-t from-black via-black/60 to-transparent" />
 
-        <div className="absolute inset-0 z-[1] bg-black/50" />
+      <div className="absolute bottom-10 left-10 z-20 max-w-[400px] text-white">
+        <h2 className="text-2xl font-semibold">{title}</h2>
+        <p className="mt-2 text-base">{description}</p>
       </div>
-
-      <div className="block md:hidden">
-        <div className="relative h-[250px] w-full">
-          <Image
-            src="/images/feat-section/mobile.png"
-            alt="Mobile Image"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-
-        <div className="px-6 py-4 text-left text-gray-800">
-          <h1 className="text-xl font-bold">{title}</h1>
-          <p className="mt-2 text-sm">{description}</p>
-        </div>
-      </div>
-    </section>
+    </div>
   );
 };
 

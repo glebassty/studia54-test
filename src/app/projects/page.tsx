@@ -35,7 +35,13 @@ export default function ProjectsPage() {
           />
         </div>
       </div>
-      <FeaturesSection />
+      <div className="mt-10 flex w-full max-w-5xl flex-col gap-10">
+        <FeaturesSection
+          imageSrc="/images/feat-section/desktop.png"
+          title="Layout features"
+          description="Studia 54 architects designed a comprehensive architectural ensemble that includes a main house, a garage, four townhouses, and a separate staff house. All buildings are executed in a unified stylistic design, appearing as a cohesive complex."
+        />
+      </div>
     </div>
   );
 }
