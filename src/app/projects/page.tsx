@@ -1,5 +1,6 @@
 import CardImage from "~/components/CardImage";
 import CardInfo from "~/components/Cardinfo";
+import FeaturesSection from "~/components/FeaturesSection";
 import HeroSection from "~/components/HeroSection";
 
 export default function ProjectsPage() {
@@ -34,6 +35,7 @@ export default function ProjectsPage() {
           />
         </div>
       </div>
+      <FeaturesSection />
     </div>
   );
 }

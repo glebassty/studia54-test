@@ -1,5 +1,3 @@
-// types/strapi.ts
-
 export interface ImageFormat {
   ext: string;
   url: string;
@@ -60,7 +58,6 @@ export interface Article {
   };
 }
 
-// Ответ Strapi
 export interface StrapiResponse<T> {
   data: T[];
   meta: Record<string, unknown>;

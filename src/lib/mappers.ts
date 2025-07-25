@@ -1,4 +1,4 @@
-// lib/mappers.ts
+
 import type { UICard } from '~/types/common';
 import type { Article } from '../types/strapi';
 import { getStrapiMedia } from './funcs';
@@ -13,7 +13,6 @@ export function mapArticlesToCards(articles: Article[]): UICard[] {
       preview?.data?.attributes?.url
     );
 
-    // Массив объектов тегов с system_title
     const tagObjects =
       tags?.data?.map((tag) => ({
         system_title: tag.attributes?.system_title ?? '',
