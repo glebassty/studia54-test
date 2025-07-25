@@ -47,7 +47,7 @@ export default function ProjectsPage() {
         </div>
         <div className="flex gap-6">
           <CardInfo
-            imageSrc="/images/card-image/image_2.png"
+            imageSrc="/images/card-info/image.png"
             description="Это описание появится под изображением"
           />
           <CardImage
