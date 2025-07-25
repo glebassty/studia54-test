@@ -21,7 +21,6 @@ export default function HomePage() {
     });
   }, []);
 
-  console.log(articles, "articles");
   const cards = useMemo(() => mapArticlesToCards(articles), [articles]);
   const categories = useMemo(() => buildTabCategories(articles), [articles]);
 

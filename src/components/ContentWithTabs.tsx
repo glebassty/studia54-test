@@ -11,8 +11,6 @@ interface Props {
 }
 
 export default function ContentWithTabs({ cards, categories }: Props) {
-  console.log(categories, "categories");
-  console.log(cards, "cards");
   return (
     <Tabs defaultValue="all" className="w-full p-8">
       <TabsList className="mb-8 flex justify-center gap-2 border-none bg-neutral-800">
