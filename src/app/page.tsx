@@ -7,9 +7,10 @@ import ContentWithTabs from "~/components/ContentWithTabs";
 import PromoBlock from "~/components/PromoBlock";
 import { PROMO_DESCRIPTION } from "~/lib/constants";
 import { getArticles } from "~/lib/funcs";
+import type { Article } from "~/lib/typesStrapi";
 
 export default function HomePage() {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
     void getArticles().then(setArticles);
