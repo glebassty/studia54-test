@@ -1,21 +1,21 @@
-// lib/funcs.ts
 import axios from 'axios';
 import type { Article, StrapiResponse } from '../types/strapi';
+
+const STRAPI_BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
 export function getStrapiMedia(path?: string | null): string | null {
   if (!path) return null;
   if (path.startsWith('http')) return path;
-  const base = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
-  return `${base}${path}`;
+  return `${STRAPI_BASE_URL}${path}`;
 }
 
 export async function getArticles(): Promise<Article[]> {
   try {
     const res = await axios.get<StrapiResponse<Article>>(
-      'http://localhost:1337/api/articles',
+      `${STRAPI_BASE_URL}/api/articles`,
       {
         params: {
-          populate: '*', 
+          populate: '*',
           sort: 'publishedAt:desc',
         },
       }
@@ -27,16 +27,20 @@ export async function getArticles(): Promise<Article[]> {
   }
 }
 
-
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
-  const res = await axios.get<StrapiResponse<Article>>(
-    "http://localhost:1337/api/articles",
-    {
-      params: {
-        populate: "*",
-        "filters[seo][slug][$eq]": slug,
-      },
-    },
-  );
-  return res.data.data[0] ?? null;
+  try {
+    const res = await axios.get<StrapiResponse<Article>>(
+      `${STRAPI_BASE_URL}/api/articles`,
+      {
+        params: {
+          populate: '*',
+          'filters[seo][slug][$eq]': slug,
+        },
+      }
+    );
+    return res.data.data[0] ?? null;
+  } catch (err) {
+    console.error('Ошибка при загрузке статьи по slug:', err);
+    return null;
+  }
 }
