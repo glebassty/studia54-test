@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 type CardInfoProps = {
-  imageSrc?: string; // путь к картинке (если нет — не показываем)
-  title?: string; // заголовок (если нет — не показываем)
-  description: string; // первый блок текста
-  description2?: string; // второй блок текста (если нет — не показываем)
+  imageSrc?: string;
+  title?: string;
+  description: string;
+  description2?: string;
 };
 
 export default function CardInfo({
@@ -14,25 +14,24 @@ export default function CardInfo({
   description2,
 }: CardInfoProps) {
   return (
-    <div className="border-b border-[#5B5C5D] text-left text-white">
-      {/* Картинка */}
+    <div className="border-b border-[#5B5C5D] text-left text-white md:border-b">
       {imageSrc && (
-        <div className="relative h-[300px] w-[400px]">
+        <div className="relative h-auto w-full">
           <Image
             src={imageSrc}
             alt={title ?? "image"}
             width={640}
             height={481}
-            className="object-cover"
+            className="h-auto w-full object-cover"
           />
         </div>
       )}
 
-      {title && <h2 className="pt-5 text-xl font-bold">{title}</h2>}
-
-      <p className="pt-5">{description}</p>
-
-      {description2 && <p className="pt-5">{description2}</p>}
+      <div className="p-5 md:p-5">
+        {title && <h2 className="pt-5 text-xl font-bold">{title}</h2>}
+        <p className="pt-5">{description}</p>
+        {description2 && <p className="pt-5">{description2}</p>}
+      </div>
     </div>
   );
 }

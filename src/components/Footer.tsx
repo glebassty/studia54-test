@@ -4,7 +4,6 @@ export default function Footer() {
   return (
     <footer className="border-t border-gray-300 bg-[#181818] font-sans font-normal">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Мобильная версия */}
         <div className="flex h-24 items-end justify-start md:hidden">
           <div className="flex flex-col text-left">
             <div className="text-2xl leading-none text-[#FFFFFF]">
@@ -16,7 +15,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Десктопная версия */}
         <div className="hidden h-16 items-center justify-between md:flex">
           <div className="flex items-center space-x-4">
             <div className="text-2xl leading-none text-[#FFFFFF]">
